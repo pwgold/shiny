@@ -1,0 +1,62 @@
+library(shiny)
+library(ggplot2)  # for the diamonds dataset
+
+getData = function(country){
+        filename = paste('/home/ubuntu/aws/collect/InteractiveBrokers/data.', country, '/2015-11-20%201605.', country, '.txt', sep='')
+        data = read.csv(filename, sep='|',header=TRUE,skip=1)
+        return(data)
+}
+
+australia = getData('australia')
+british = getData('british')
+canada = getData('canada')
+
+shinyUI(fluidPage(
+  title = 'Examples of DataTables',
+  sidebarLayout(
+    sidebarPanel(
+      conditionalPanel(
+        'input.dataset === "canada"',
+        checkboxGroupInput('show_vars_canada', 'Columns to show:',
+                           names(canada), selected = names(canada))
+      ),
+      
+      conditionalPanel(
+        'input.dataset === "british"',
+        checkboxGroupInput('show_vars_british', 'Columns to show:',
+                           names(british), selected = names(british))
+      ),
+      
+      conditionalPanel(
+        'input.dataset === "australia"',
+        checkboxGroupInput('show_vars_australia', 'Columns to show:',
+                           names(australia), selected = names(australia))
+      )
+            
+      #conditionalPanel(
+      #  'input.dataset === "mtcars"',
+      #  helpText('Click the column header to sort a column.')
+      #),
+      #conditionalPanel(
+      #  'input.dataset === "iris"',
+      #  helpText('Display 5 records by default.')
+      #),
+      #conditionalPanel(
+      #  'input.dataset === "british"',
+      #  checkboxGroupInput('show_vars_british', 'Columns in diamonds to show:',
+      #                     names(british), selected = names(british))
+      #)
+    ),
+    mainPanel(
+      tabsetPanel(
+        id = 'dataset',
+        #tabPanel('diamonds', DT::dataTableOutput('mytable1')),
+        #tabPanel('mtcars', DT::dataTableOutput('mytable2')),
+        #tabPanel('iris', DT::dataTableOutput('mytable3')),
+        tabPanel('canada', DT::dataTableOutput('canadaTable')), # nothing displays when this is mytable3
+        tabPanel('british', DT::dataTableOutput('britishTable')),
+        tabPanel('australia', DT::dataTableOutput('australiaTable'))
+      )
+    )
+  )
+))

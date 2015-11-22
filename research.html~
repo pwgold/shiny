@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Research Portal</title>
+  <style type="text/css">
+    body, html {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #F5F5F5;
+      color: #114;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #titleBar {
+      height: 80px;
+      background-color: #3475b4;
+      overflow: hidden;
+      border-bottom: 1px solid #3475b3;
+      -moz-box-shadow:    0px 0px 10px 3px #BBC;
+      -webkit-box-shadow: 0px 0px 10px 3px #BBC;
+      box-shadow:         0px 0px 10px 3px #BBC;
+    }
+    #titleBar #container {
+      margin-top: 14px;
+    }
+    #titleBar h1 {
+      margin: 0 auto .5em auto;
+      padding: .2em;
+      color: #EEE;
+      text-align: center;
+    }
+    #intro {
+      background-color: #DDD;
+      margin: 1em 1em 0 1em;
+      padding: .75em;
+      text-align: center;
+      border: 1px solid #CCC;
+      font-size: 18px;
+    }
+    #intro p {
+      margin: .3em 0 .3em 0;
+    }
+    #outer-content {
+      max-width: 910px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #content {
+      margin: 1em auto 1em auto;
+      float: left;
+    }
+    #main{
+      margin-right: 350px;
+      float: left;
+      line-height: 24px;
+    }
+
+    #shiny{
+      float: left;
+      width: 305px;
+      margin-left: -330px;
+      padding-left: 20px;
+      border-left: 1px solid #AAA;
+    }
+    #shiny iframe {
+      margin-top: 30px;
+    }
+    .caption{
+      font-size: 13px;
+    }
+    code {
+      background-color: #E5E5E5;
+      border: 1px solid #AAA;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px; 
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      padding: 0 .5em 0 .5em;
+    }
+  </style>
+</head>
+<body>
+  <div id="titleBar">
+    <div id="container">
+      <h1>Configurable Research Portal</h1>
+    </div>
+  </div>
+  <div id="outer-content">
+    <div id="intro">
+      <p><strong>Welcome</strong> to the research portal, a simple edit of packaged example <a href='./index.html'>index.html</a>. </p>
+    </div>
+    <div id="content">
+      <div id="main">
+        <h2>Platforms:</h2>
+	<p><a href='https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2'>AWS Dashboard</a></p>
+	<p><a href='http://ec2-52-11-107-108.us-west-2.compute.amazonaws.com:8787/'>RStudio</a></p>
+	<p><a href='https://ec2-52-11-107-108.us-west-2.compute.amazonaws.com:8888/'>IPython Notebooks</a></p>
+        <h2>Apps:</h2>
+	<p><a href='http://ec2-52-11-107-108.us-west-2.compute.amazonaws.com:3838/prod/short_borrow/'>Stock Loan Rates</a></p>
+        <h2>Case Studies:</h2>
+	<p><a href='https://s3-us-west-2.amazonaws.com/knowledge.capture/ISRG/ISRG_Case_Study.html'>Intuitive Surgical, Inc. (NASDAQ:ISRG)</a></p>
+	<p><a href='https://s3-us-west-2.amazonaws.com/knowledge.capture/KMX/CarMax_Case_Study.html'>CarMax, Inc (NYSE:KMX)</a></p>
+        <h2>Code and Research:</h2>
+	<p>"Dash for Cash: Month-End Liquidity Needs and the Predictability of Stock Returns" (<a href='http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2528692'>pdf</a>, <a href='https://ec2-52-11-107-108.us-west-2.compute.amazonaws.com:8888/2adc0e50-8c09-46cb-aa4e-85946adc70e1'>python</a>)</p>
+	<p>"Statistical Arbitrage in the U.S. Equities Market" (<a href='https://www.math.nyu.edu/faculty/avellane/AvellanedaLeeStatArb071108.pdf'>pdf</a>, <a href='https://ec2-52-11-107-108.us-west-2.compute.amazonaws.com:8888/41acee00-2182-4e96-98a0-bec0efde2ffa'>python</a>)</p>
+	<p>"Brasil Risk and Alpha Factor Handbook" (<a href='http://www.brasilplural.com/site/Files/GovernancaRiscoCompliance/Brasil%20Risk%20and%20Alpha%20Factor%20Handbook.pdf'>pdf</a>)</p>
+      </div>
+
+      <div id="shiny">
+        <!-- <iframe src="./sample-apps/shiny-examples/063-superzip-example/" style="border: 1px solid #AAA; width: 290px; height: 460px"></iframe> -->
+	<iframe src='./sample-apps/shiny-examples/063-superzip-example' style="border: 1px solid #AAA; width: 460px; height: 460px"></iframe>
+        <div class="caption">
+	  <a href='http://ec2-52-11-107-108.us-west-2.compute.amazonaws.com:3838/sample-apps/shiny-examples/063-superzip-example/'>link</a>
+        </div>
+
+	<iframe src='https://pmaier1971.shinyapps.io/AutomatedForecastingWithShiny/'  style="border: 1px solid #AAA; width: 460px; height: 680px"></iframe>
+        <div class="caption">
+	  <a href='https://pmaier1971.shinyapps.io/AutomatedForecastingWithShiny/'  style="border: 1px solid #AAA; width: 460px; height: 680px"></iframe>
+
+        <iframe src="./sample-apps/shiny-examples/082-word-cloud/" style="border: 1px solid #AAA; width: 460px; height: 680px"></iframe>
+        <div class="caption">
+	  <a href='http://ec2-52-11-107-108.us-west-2.compute.amazonaws.com:3838/sample-apps/shiny-examples/082-word-cloud/'>link</a>
+        </div>
+	
+        </div>
+	<!-- <iframe src='http://www.trfetzer.com/shale-economic-impact-map/'  style="border: 1px solid #AAA; width: 290px; height: 460px"></iframe>
+        <iframe src="./sample-apps/rmd/" style="border: 1px solid #AAA; width: 290px; height: 420px"></iframe>
+        <div class="caption">
+          With Shiny and <code>rmarkdown</code> installed, you should see a Shiny doc above.
+        </div>
+	-->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

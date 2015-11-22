@@ -1,0 +1,45 @@
+library(shiny)
+library(ggplot2)
+
+shinyServer(function(input, output) {
+
+getData = function(country, date){
+	filename = paste('/home/ubuntu/aws/collect/InteractiveBrokers/data.', country, '/', date, '%201605.', country, '.txt', sep='')
+	data = read.csv(filename, sep='|',header=TRUE,skip=1)
+	return(data)
+}
+
+  output$dateText  <- renderText({
+    paste("input$date is", as.character(input$date))
+  })
+
+#australia <- getData('australia', '2015-11-20') #s.character(input$date))
+austria = getData('austria', '2015-11-20')
+belgium = getData('belgium', '2015-11-20')
+british = getData('british', '2015-11-20')
+canada = getData('canada', '2015-11-20')
+dutch = getData('dutch', '2015-11-20')
+france = getData('france', '2015-11-20')
+hongkong = getData('hongkong', '2015-11-20')
+india = getData('india', '2015-11-20')
+italy = getData('italy', '2015-11-20')
+
+
+  #output$canadaTable <- DT::renderDataTable({
+  #  DT::datatable(canada[, input$show_vars_canada, drop = FALSE])  
+  #})  
+  # print_line = function(country){return(paste('output$',country, 'Table <- DT::renderDataTable({DT::datatable(',country,'[, input$show_vars_',country,', drop = FALSE])',sep=''))}
+
+  #output$australiaTable <- DT::renderDataTable({DT::datatable(australia[, input$show_vars_australia, drop = FALSE])})
+  output$australiaTable <- DT::renderDataTable({DT::datatable(getData('australia', as.character(input$date))[, input$show_vars_australia, drop = FALSE])})
+  output$austriaTable <- DT::renderDataTable({DT::datatable(austria[, input$show_vars_austria, drop = FALSE])})
+  output$belgiumTable <- DT::renderDataTable({DT::datatable(belgium[, input$show_vars_belgium, drop = FALSE])})
+  output$britishTable <- DT::renderDataTable({DT::datatable(british[, input$show_vars_british, drop = FALSE])})
+  output$canadaTable <- DT::renderDataTable({DT::datatable(canada[, input$show_vars_canada, drop = FALSE])})	
+  output$dutchTable <- DT::renderDataTable({DT::datatable(dutch[, input$show_vars_dutch, drop = FALSE])})	
+  output$franceTable <- DT::renderDataTable({DT::datatable(france[, input$show_vars_france, drop = FALSE])})	
+  output$hongkongTable <- DT::renderDataTable({DT::datatable(hongkong[, input$show_vars_hongkong, drop = FALSE])})
+  output$indiaTable <- DT::renderDataTable({DT::datatable(india[, input$show_vars_india, drop = FALSE])})
+  output$italyTable <- DT::renderDataTable({DT::datatable(italy[, input$show_vars_italy, drop = FALSE])})
+
+})
